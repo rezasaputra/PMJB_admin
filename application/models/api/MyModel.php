@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MyModel extends CI_Model {
 
     var $client_service = "frontend-client";
-    var $auth_key       = "plesir_blora";
+    var $auth_key       = "pmjb";
     // header('Content-Type: application/json');
     
     public function check_auth_client()
