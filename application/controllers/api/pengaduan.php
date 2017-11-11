@@ -73,26 +73,30 @@ class Pengaduan extends CI_Controller {
         }
     }
 
+
+
     function create_pengaduan()
     {
-        $method = $_SERVER['REQUEST_METHOD'];
-        if ($method != 'POST') 
-        {
-            $this->MyModel->bad_request();
-        } else {
-            $check_auth_client = $this->MyModel->check_auth_client();
-            if ($check_auth_client == true) 
-            {
-                $params  = json_decode(file_get_contents('php://input'), TRUE);
-                //$id_user=$params['id_user'];
-               
-                //$path = "assets/Event_img/$id_user.jpg";
-                //$actualpath = "$id_user.jpg";
 
-                $image = $params['img'];
-                //file_put_contents($path,base64_decode($image));
-                // echo "<img src='$image'>";
-                
+         $method = $_SERVER['REQUEST_METHOD'];
+
+        if ($method != 'POST') 
+
+        {
+
+            $this->MyModel->bad_request();
+
+        } else {
+
+            $check_auth_client = $this->MyModel->check_auth_client();
+
+            if ($check_auth_client == true) 
+
+            {
+
+                $params  = json_decode(file_get_contents('php://input'), TRUE);
+
+                 $image = $params['img'];
                 $id_pengaduan=$params['id_pengaduan'];
                 $longtitude=$params['longitude'];
                 $latitude=$params['latitude'];
@@ -114,8 +118,14 @@ class Pengaduan extends CI_Controller {
                 $response=$this->Model_pengaduan->create_data($data);
 
                 json_output(200, $response);
+
+                json_output(200, $response);
+
             }
+
         }
+
+    
     }
 
 
